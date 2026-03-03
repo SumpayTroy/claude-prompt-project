@@ -102,7 +102,7 @@
                 <form method="POST" action="{{ route('auth.logout') }}" style="margin-left:auto">
                     @csrf
                     <button type="submit" title="Logout"
-                        style="background:none;border:none;cursor:pointer;font-size:18px;opacity:0.4;color:white">
+                        style="background:none;border:none;cursor:pointer;font-size:18px;opacity:0.4;color:var(--text)">
                         ⏻
                     </button>
                 </form>
