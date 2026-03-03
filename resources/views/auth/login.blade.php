@@ -14,7 +14,9 @@
 
 <div class="login-page">
     <div class="login-bg-decor"></div>
-
+    <div class="login-theme-toggle">
+    <button class="theme-toggle" onclick="toggleTheme()" id="theme-toggle">☀️</button>
+    </div>
     <div class="login-card">
         <div class="login-crown">👑</div>
         <div class="login-title">PageantPro</div>
@@ -46,7 +48,6 @@
                     type="email"
                     class="form-input"
                     placeholder="admin@pageant.com"
-                    placeholder="Test@pageant.com"
                     value="{{ old('email') }}"
                     autocomplete="email"
                     required
@@ -87,5 +88,18 @@
 </div>
 
 </div>
+ <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const saved = localStorage.getItem('theme') || 'dark';
+            if (saved === 'light') document.body.classList.add('light-mode');
+            document.getElementById('theme-toggle').textContent = saved === 'light' ? '🌙' : '☀️';
+        });
+
+        function toggleTheme() {
+            const isLight = document.body.classList.toggle('light-mode');
+            localStorage.setItem('theme', isLight ? 'light' : 'dark');
+            document.getElementById('theme-toggle').textContent = isLight ? '🌙' : '☀️';
+        }
+    </script>
 </body>
 </html>

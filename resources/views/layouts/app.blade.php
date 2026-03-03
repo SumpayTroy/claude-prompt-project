@@ -127,6 +127,7 @@
                 <span class="live-dot">LIVE · Segment 4 of 5</span>
                 <div class="event-badge">🎭 Miss Philippines 2025</div>
                 <div class="notif-btn">🔔<span class="notif-dot"></span></div>
+                <button class="theme-toggle" onclick="toggleTheme()" id="theme-toggle" title="Toggle theme">☀️</button>
             </div>
         </header>
 
@@ -158,5 +159,18 @@
 </div>
 
 <script src="{{ asset('js/pageant.js') }}"></script>
+<script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const saved = localStorage.getItem('theme') || 'dark';
+            if (saved === 'light') document.body.classList.add('light-mode');
+            document.getElementById('theme-toggle').textContent = saved === 'light' ? '🌙' : '☀️';
+        });
+
+        function toggleTheme() {
+            const isLight = document.body.classList.toggle('light-mode');
+            localStorage.setItem('theme', isLight ? 'light' : 'dark');
+            document.getElementById('theme-toggle').textContent = isLight ? '🌙' : '☀️';
+        }
+    </script>
 </body>
 </html>
