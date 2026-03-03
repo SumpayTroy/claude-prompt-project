@@ -46,6 +46,7 @@
                     type="email"
                     class="form-input"
                     placeholder="admin@pageant.com"
+                    placeholder="Test@pageant.com"
                     value="{{ old('email') }}"
                     autocomplete="email"
                     required
